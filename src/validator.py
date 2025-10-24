@@ -1,6 +1,8 @@
 from pydantic import BaseModel, Field
 from typing import Optional, Union
 
+# --- CONTRATO DE DADOS ---
+
 class AdPerformanceRecord(BaseModel):
     Organizador: int = Field(..., description="ID numérico do organizador.")
     Ano_Mes: str = Field(..., description="Período do registro (Ex: '2024 | Março').")
@@ -13,7 +15,7 @@ class AdPerformanceRecord(BaseModel):
     Link_clicks: Optional[Union[int, float]] = Field(None, description="Número de cliques no link.")
     Impressions: Optional[Union[int, float]] = Field(None, description="Número de impressões.")
     Conversions: Optional[Union[int, float]] = Field(None, description="Número de conversões.")
-    Segmentação: str = Field(..., description="Tipo de segmentação de público.")
+    Segmentação: Optional[str] = Field(None, description="Tipo de segmentação de público.")
     Tipo_de_Anúncio: str = Field(..., description="Tipo do criativo (Ex: 'Estático', 'Video').")
     Fase: str = Field(..., description="Fase da campanha/lançamento.")
 
